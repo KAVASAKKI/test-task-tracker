@@ -1,5 +1,13 @@
-function App() {
-  return <div className="App"></div>;
-}
+import { Container, Title, SearchForm, TrackerList } from 'components';
 
-export default App;
+export const App = () => {
+  return (
+    <Container>
+      <Title text="Tracker" />
+
+      <SearchForm></SearchForm>
+
+      <TrackerList />
+    </Container>
+  );
+};

@@ -1,0 +1,24 @@
+.form {
+  position: relative;
+}
+
+.input {
+  color: gray;
+  font-size: 18pt;
+
+  width: 100%;
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 50px;
+
+  outline-color: gray;
+  outline-style: solid;
+  outline-width: 1px;
+}
+.input:focus,
+.input:active {
+  outline-color: var(--accent-color);
+  outline-style: solid;
+  outline-width: 2px;
+}

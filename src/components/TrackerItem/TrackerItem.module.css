@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0px 20px;
+
+  list-style: none;
+
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.name {
+  font-size: 14pt;
+  font-weight: 500;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  font-weight: 500;
+  margin-right: 50px;
+}
