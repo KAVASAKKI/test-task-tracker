@@ -1,7 +1,6 @@
-import { TTrakerItem } from 'types/types';
 import { useSelector } from 'react-redux';
 import { TrackersSelectors } from 'redux/trackers';
-import { TrackerItem, Title } from 'components';
+import { TrackerItem, Notification } from 'components';
 import styles from './TrackerList.module.css';
 
 export const TrackerList = () => {
@@ -11,12 +10,12 @@ export const TrackerList = () => {
     <div className={styles.container}>
       {trackers.length ? (
         <ul className={styles.list}>
-          {trackers.map((item: TTrakerItem) => (
-            <TrackerItem item={item} key={item.id} />
+          {trackers.map((tracker) => (
+            <TrackerItem item={tracker} key={tracker.id} />
           ))}
         </ul>
       ) : (
-        <Title text="TrackerList is empty" />
+        <Notification text="TrackerList is empty" />
       )}
     </div>
   );

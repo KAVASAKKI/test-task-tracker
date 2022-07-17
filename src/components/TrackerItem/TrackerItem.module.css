@@ -4,15 +4,23 @@
 
   padding: 0px 20px;
 
-  list-style: none;
-
   border-top: 1px solid gray;
+  list-style: none;
+}
+.item:first-child {
+  border-top: 1px solid gray;
+}
+.item:last-child {
   border-bottom: 1px solid gray;
 }
 
 .name {
   font-size: 14pt;
   font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: 5px;
 }
 
 .info {
@@ -23,4 +31,18 @@
 .time {
   font-weight: 500;
   margin-right: 50px;
+  margin: 0;
+  padding: 0px 10px;
+}
+
+.isActiveTime {
+  color: var(--accent-color);
+}
+
+.isActiveItem {
+  background-color: rgba(255, 255, 0, 0.116);
+}
+
+.iconWrapper {
+  width: max-content;
 }

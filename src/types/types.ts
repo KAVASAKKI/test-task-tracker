@@ -1,6 +1,11 @@
-export type TTrakerItem = {
+export type TTraker = {
   id: string;
   name: string;
-  time: string;
-  isPlaying: boolean;
+  startTime: number;
+  leftTime: number;
+  isPlay: boolean;
 };
+
+export interface ReduxState {
+  trackers: { list: TTraker[] };
+}

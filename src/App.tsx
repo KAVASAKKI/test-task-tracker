@@ -5,7 +5,7 @@ export const App = () => {
     <Container>
       <Title text="Tracker" />
 
-      <SearchForm></SearchForm>
+      <SearchForm />
 
       <TrackerList />
     </Container>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { TrackersActions } from 'redux/trackers';
-import { getTimeComponents } from 'utils/getTimeComponents';
+import { getPrettifyCurrentDate } from 'utils/getTimeComponents';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import { IconButton } from '@mui/material';
 import styles from './SearchForm.module.css';
@@ -27,18 +27,15 @@ export const SearchForm = () => {
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const currentTime = Date.now();
-    const { hours, mins, secs } = getTimeComponents(currentTime);
-
     if (!name) {
-      const defaultName = `Tracker ${hours}:${mins}:${secs}`;
-      dispatch(
-        TrackersActions.addTracker({ name: defaultName, time: currentTime })
+      return dispatch(
+        TrackersActions.addTracker({
+          name: `Tracker ${getPrettifyCurrentDate()}`,
+        })
       );
-      return;
     }
 
-    dispatch(TrackersActions.addTracker({ name, time: currentTime }));
+    dispatch(TrackersActions.addTracker({ name }));
     setName('');
   };
 
