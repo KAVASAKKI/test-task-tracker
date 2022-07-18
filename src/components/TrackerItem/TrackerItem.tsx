@@ -29,7 +29,7 @@ export const TrackerItem = ({ item }: IProps) => {
       dispatch(
         TrackersActions.updateTrackerTime({
           id,
-          leftTime: Date.now() - startTime + leftTime + 1000,
+          leftTime: Date.now() - startTime + leftTime,
           startTime: Date.now(),
         })
       );
