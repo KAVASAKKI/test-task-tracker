@@ -1,24 +1,17 @@
+import moment from 'moment';
+
+export const now = () => moment().toDate().getTime();
+
+export const pad = (value: number) => String(value).padStart(2, '0');
+
+export const getPrettifyCurrentDate = () =>
+  `${moment().format('L')} - ${moment().locale('').format('LTS').slice(0, 8)}`;
+
 export const getTimeComponents = (time: number) => {
-  const days = Math.floor(time / (1000 * 60 * 60 * 24));
-  const dayHours = (time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
-  const hours = pad(Math.floor(days > 0 ? dayHours * days * 24 : dayHours));
-  const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
-  const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
-  return { hours, mins, secs };
-};
+  const dur = moment.duration(time, 'milliseconds');
+  const hours = Math.floor(dur.asHours());
+  const mins = Math.floor(dur.asMinutes()) - hours * 60;
+  const secs = Math.floor(dur.asSeconds()) - hours * 60 * 60 - mins * 60;
 
-export const pad = (value: number) => {
-  return String(value).padStart(2, '0');
-};
-
-export const getPrettifyCurrentDate = () => {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = pad(today.getMonth() + 1);
-  const day = pad(today.getDate());
-  const hours = pad(today.getHours());
-  const minutes = pad(today.getMinutes());
-  const seconds = pad(today.getSeconds());
-
-  return `${year}/${month}/${day} - ${hours}:${minutes}:${seconds}`;
+  return { hours: pad(hours), mins: pad(mins), secs: pad(secs) };
 };

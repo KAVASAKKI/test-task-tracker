@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { TrackersActions } from 'redux/trackers';
 import { getPrettifyCurrentDate } from 'utils/getTimeComponents';
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import { IconButton } from '@mui/material';
+import { IconButton, PlayCircleIcon } from 'elements';
 import styles from './SearchForm.module.css';
 
 const searchButtonStyles = {

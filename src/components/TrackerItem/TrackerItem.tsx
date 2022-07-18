@@ -1,13 +1,15 @@
+import { TTraker } from 'types/types';
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { TrackersActions } from 'redux/trackers';
-import { TTraker } from 'types/types';
+import { now, getTimeComponents } from 'utils/getTimeComponents';
+import {
+  IconButton,
+  PlayCircleOutlineIcon,
+  PauseCircleOutlineIcon,
+  RemoveCircleOutlineIcon,
+} from 'elements';
 import styles from './TrackerItem.module.css';
-import { IconButton } from '@mui/material';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import { getTimeComponents } from 'utils/getTimeComponents';
 
 interface IProps {
   item: TTraker;
@@ -29,8 +31,8 @@ export const TrackerItem = ({ item }: IProps) => {
       dispatch(
         TrackersActions.updateTrackerTime({
           id,
-          leftTime: Date.now() - startTime + leftTime,
-          startTime: Date.now(),
+          leftTime: now() - startTime + leftTime,
+          startTime: now(),
         })
       );
     };

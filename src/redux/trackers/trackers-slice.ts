@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import moment from 'moment';
 import { TTraker } from 'types/types';
+import { now } from 'utils/getTimeComponents';
 
 interface IRemoveTracker {
   payload: { id: string };
@@ -46,7 +48,7 @@ const trackersSlice = createSlice({
             : {
                 ...item,
                 isPlay: payload.isPlay,
-                startTime: payload.isPlay ? Date.now() : item.startTime,
+                startTime: payload.isPlay ? now() : item.startTime,
               }
         ),
       });

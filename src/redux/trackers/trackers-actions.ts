@@ -1,6 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 import { TTraker } from 'types/types';
+import { now } from 'utils/getTimeComponents';
 
 interface IAddTracker {
   name: string;
@@ -12,7 +13,7 @@ const addTracker = createAction(
     payload: {
       id: nanoid(),
       name,
-      startTime: Date.now(),
+      startTime: now(),
       leftTime: 0,
       isPlay: true,
     },
